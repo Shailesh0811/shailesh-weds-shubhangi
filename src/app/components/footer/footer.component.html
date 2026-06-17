@@ -1,0 +1,41 @@
+<footer class="footer">
+  <div class="footer__top">
+    <!-- Decorative Line -->
+    <div class="footer__divider" aria-hidden="true">
+      <span>✦</span>
+      <span class="footer__divider-text">S & S</span>
+      <span>✦</span>
+    </div>
+
+    <div class="footer__brand">
+      <span class="footer__script">Shailesh</span>
+      <span class="footer__amp">&</span>
+      <span class="footer__script">Shubhangi</span>
+    </div>
+    <p class="footer__date">26th November 2026 · Pune, Maharashtra</p>
+    <p class="footer__tagline">
+      <i class="fas fa-heart footer__heart"></i>
+      Two hearts becoming one — forever
+      <i class="fas fa-heart footer__heart"></i>
+    </p>
+  </div>
+
+  <div class="footer__nav">
+    @for (link of navLinks; track link.target) {
+      <button class="footer__nav-link" (click)="scrollTo(link.target)">
+        {{ link.label }}
+      </button>
+    }
+  </div>
+
+  <div class="footer__bottom">
+    <div class="footer__divider-thin" aria-hidden="true"></div>
+    <p class="footer__credit">
+      Made with <i class="fas fa-heart footer__credit-heart"></i> for
+      <strong>Er. Shailesh Mohite</strong> &amp; <strong>Dr. Shubhangi Pandit</strong>
+    </p>
+    <p class="footer__copy">
+      © {{ year }} Shailesh Weds Shubhangi · All rights reserved
+    </p>
+  </div>
+</footer>

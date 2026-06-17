@@ -1,0 +1,76 @@
+<section class="collage" id="collage">
+  <div class="collage__petals" aria-hidden="true">
+    <span>🌸</span><span>🌹</span><span>🌸</span><span>🌺</span>
+    <span>🌸</span><span>🌹</span><span>🌸</span><span>🌺</span>
+  </div>
+
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Shailesh & Shubhangi</span>
+      <h2 class="section-title">Our Beautiful Moments</h2>
+      <div class="section-divider">
+        <span class="divider-icon"><i class="fas fa-heart"></i></span>
+      </div>
+      <p class="section-subtitle">Every moment with you is a memory I treasure forever</p>
+    </div>
+
+    <!-- Main frame: left col | center photo | right col -->
+    <div class="collage__frame reveal">
+
+      <!-- Floating hearts (desktop only) -->
+      <div class="collage__hearts" aria-hidden="true">
+        <span class="collage__heart collage__heart--1">♥</span>
+        <span class="collage__heart collage__heart--2">♥</span>
+        <span class="collage__heart collage__heart--3">♥</span>
+        <span class="collage__heart collage__heart--4">♥</span>
+        <span class="collage__heart collage__heart--5">♥</span>
+        <span class="collage__heart collage__heart--6">♥</span>
+      </div>
+
+      <!-- Center photo — CSS moves it to top on mobile via order:-1 -->
+      <div class="collage__center">
+        <div class="collage__photo-frame">
+          <div class="collage__photo-ring" aria-hidden="true"></div>
+          <!-- Place your couple photo at assets/images/couple-hero.jpg to show here -->
+
+          <div class="collage__center-fallback">
+            <span class="collage__name-script">Shailesh</span>
+            <span class="collage__name-amp">&</span>
+            <span class="collage__name-script">Shubhangi</span>
+            <i class="fas fa-heart collage__center-heart"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Left column -->
+      <div class="collage__col">
+        @for (slot of leftSlots; track slot.id) {
+          <div class="collage__slot">
+            <img [src]="slot.src" [alt]="slot.label" loading="lazy" class="collage__img" />
+            <div class="collage__slot-hover">{{ slot.label }}</div>
+          </div>
+        }
+      </div>
+
+      <!-- Right column -->
+      <div class="collage__col">
+        @for (slot of rightSlots; track slot.id) {
+          <div class="collage__slot">
+            <img [src]="slot.src" [alt]="slot.label" loading="lazy" class="collage__img" />
+            <div class="collage__slot-hover">{{ slot.label }}</div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Bottom row: 6 more illustrations -->
+    <div class="collage__bottom reveal">
+      @for (slot of bottomSlots; track slot.id) {
+        <div class="collage__bottom-slot">
+          <img [src]="slot.src" [alt]="slot.label" loading="lazy" class="collage__img" />
+          <div class="collage__slot-hover">{{ slot.label }}</div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

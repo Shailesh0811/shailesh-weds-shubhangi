@@ -1,0 +1,184 @@
+<section class="rsvp" id="rsvp">
+  <div class="rsvp__bg-overlay" aria-hidden="true"></div>
+  <div class="container">
+    <div class="rsvp__top-illustration reveal">
+      <app-couple-art [illustration]="rsvpIllustration" size="md" [animate]="true"></app-couple-art>
+    </div>
+
+    <div class="section-header reveal">
+      <span class="section-label">You're Invited</span>
+      <h2 class="section-title">RSVP</h2>
+      <div class="section-divider">
+        <span class="divider-icon"><i class="fas fa-envelope-open-heart"></i></span>
+      </div>
+      <p class="section-subtitle">Kindly respond by November 10, 2026</p>
+    </div>
+
+    <div class="rsvp__wrap reveal">
+      @if (success()) {
+        <!-- Success State -->
+        <div class="rsvp__success">
+          <div class="rsvp__success-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3>Thank You, {{ f['name'].value }}!</h3>
+          <p>We're so happy you'll be celebrating with us. Your response has been noted.</p>
+          <p class="rsvp__success-sub">See you on November 26, 2026! 🎊</p>
+          <button class="btn btn--outline" (click)="reset()">
+            <i class="fas fa-redo"></i> Update Response
+          </button>
+        </div>
+      } @else {
+        <!-- Form -->
+        <form class="rsvp__form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+          <div class="rsvp__form-header">
+            <i class="fas fa-envelope-open-text"></i>
+            <p>Join us for our special day — fill in your details below</p>
+          </div>
+
+          <div class="rsvp__row">
+            <!-- Name -->
+            <div class="rsvp__field">
+              <label class="rsvp__label" for="rsvp-name">
+                <i class="fas fa-user"></i> Full Name <span class="required">*</span>
+              </label>
+              <input
+                id="rsvp-name"
+                type="text"
+                class="rsvp__input"
+                [class.error]="isInvalid('name')"
+                formControlName="name"
+                placeholder="Your full name"
+                autocomplete="name"
+              />
+              @if (isInvalid('name')) {
+                <span class="rsvp__error">
+                  @if (f['name'].errors?.['required']) { Please enter your name }
+                  @else if (f['name'].errors?.['minlength']) { Name must be at least 2 characters }
+                </span>
+              }
+            </div>
+
+            <!-- Phone -->
+            <div class="rsvp__field">
+              <label class="rsvp__label" for="rsvp-phone">
+                <i class="fas fa-phone"></i> Phone Number <span class="required">*</span>
+              </label>
+              <input
+                id="rsvp-phone"
+                type="tel"
+                class="rsvp__input"
+                [class.error]="isInvalid('phone')"
+                formControlName="phone"
+                placeholder="10-digit mobile number"
+                autocomplete="tel"
+              />
+              @if (isInvalid('phone')) {
+                <span class="rsvp__error">
+                  @if (f['phone'].errors?.['required']) { Phone number is required }
+                  @else { Please enter a valid 10-digit Indian mobile number }
+                </span>
+              }
+            </div>
+          </div>
+
+          <div class="rsvp__row">
+            <!-- Email (optional) -->
+            <div class="rsvp__field">
+              <label class="rsvp__label" for="rsvp-email">
+                <i class="fas fa-envelope"></i> Email Address <span class="optional">(Optional)</span>
+              </label>
+              <input
+                id="rsvp-email"
+                type="email"
+                class="rsvp__input"
+                [class.error]="isInvalid('email')"
+                formControlName="email"
+                placeholder="your@email.com"
+                autocomplete="email"
+              />
+              @if (isInvalid('email')) {
+                <span class="rsvp__error">Please enter a valid email address</span>
+              }
+            </div>
+
+            <!-- Guests -->
+            <div class="rsvp__field">
+              <label class="rsvp__label" for="rsvp-guests">
+                <i class="fas fa-users"></i> Number of Guests <span class="required">*</span>
+              </label>
+              <div class="rsvp__number-wrap">
+                <button type="button" class="rsvp__number-btn" (click)="decrementGuests()">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <input
+                  id="rsvp-guests"
+                  type="number"
+                  class="rsvp__input rsvp__input--number"
+                  [class.error]="isInvalid('guests')"
+                  formControlName="guests"
+                  min="1" max="10"
+                  readonly
+                />
+                <button type="button" class="rsvp__number-btn" (click)="incrementGuests()">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+              @if (isInvalid('guests')) {
+                <span class="rsvp__error">Please enter between 1 and 10 guests</span>
+              }
+            </div>
+          </div>
+
+          <!-- Attendance -->
+          <div class="rsvp__field rsvp__field--full">
+            <label class="rsvp__label">
+              <i class="fas fa-calendar-check"></i> Will you attend? <span class="required">*</span>
+            </label>
+            <div class="rsvp__attendance">
+              @for (opt of attendance; track opt.value) {
+                <label class="rsvp__attend-option" [class.selected]="f['attending'].value === opt.value">
+                  <input type="radio" formControlName="attending" [value]="opt.value" />
+                  <i class="fas {{ opt.icon }}"></i>
+                  <span>{{ opt.label }}</span>
+                </label>
+              }
+            </div>
+          </div>
+
+          <!-- Message -->
+          <div class="rsvp__field rsvp__field--full">
+            <label class="rsvp__label" for="rsvp-message">
+              <i class="fas fa-comment-dots"></i> Special Message <span class="optional">(Optional)</span>
+            </label>
+            <textarea
+              id="rsvp-message"
+              class="rsvp__textarea"
+              [class.error]="isInvalid('message')"
+              formControlName="message"
+              rows="4"
+              placeholder="Any dietary requirements, message for the couple, or special requests..."
+            ></textarea>
+            <div class="rsvp__char-count">
+              {{ (f['message'].value || '').length }} / 300
+            </div>
+            @if (isInvalid('message')) {
+              <span class="rsvp__error">Message cannot exceed 300 characters</span>
+            }
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="btn btn--primary rsvp__submit" [disabled]="loading()">
+            @if (loading()) {
+              <i class="fas fa-spinner fa-spin"></i>
+              Sending...
+            } @else {
+              <i class="fas fa-paper-plane"></i>
+              Send RSVP
+            }
+          </button>
+        </form>
+      }
+    </div>
+  </div>
+</section>

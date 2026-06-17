@@ -1,0 +1,9 @@
+<div class="couple-art" [class]="'couple-art--' + size" [class.couple-art--animated]="animate">
+  <img
+    [src]="src"
+    [alt]="illustration.description"
+    class="couple-art__img"
+    (error)="onPngError()"
+    loading="lazy"
+  />
+</div>

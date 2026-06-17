@@ -1,0 +1,94 @@
+service: shailesh-weds-shubhangi
+frameworkVersion: "3"
+provider:
+  name: aws
+  runtime: nodejs18.x
+  stage: ${opt:stage, "dev"}
+  region: ${opt:region, "us-east-1"}
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - "s3:*"
+        - "s3:PutBucketPublicAccessBlock"
+        - "s3:DeletePublicAccessBlock"
+        - "s3:PutObject"
+        - "s3:PutObjectAcl"
+        - "s3:PutObjectTagging"
+        - "cloudformation:*"
+      Resource: "*"
+
+custom:
+  fullstack:
+    bucketName: ${self:service}
+    distributionFolder: dist/shailesh-weds-shubhangi/browser
+    indexDocument: index.html
+    errorDocument: index.html
+    singlePageApp: false
+    compressWebContent:
+    clientCommand: npm run build
+    clientSrcPath: ./
+    noConfirm: true
+    invalidationPaths: /*
+    spa:
+      errorConfigurations:
+        - errorCode: 404
+          responseCode: 200
+          responsePagePath: /index.html
+
+resources:
+  Resources:
+    OriginAccessIdentity:
+      Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+      Properties:
+        CloudFrontOriginAccessIdentityConfig:
+          Comment: !Sub shailesh-weds-shubhangi Website
+    WebAppS3Bucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:service}-${self:provider.stage}-${self:service}
+        WebsiteConfiguration:
+          IndexDocument: index.html
+          ErrorDocument: index.html
+        PublicAccessBlockConfiguration:
+          BlockPublicAcls: FALSE
+          BlockPublicPolicy: FALSE
+          IgnorePublicAcls: FALSE
+          RestrictPublicBuckets: FALSE
+  extensions:
+    WebAppS3BucketPolicy:
+      Properties:
+        PolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+            - Effect: Allow
+              Action:
+                - s3:GetObject
+              Resource: !Join
+                - ""
+                - - !GetAtt WebAppS3Bucket.Arn
+                  - "/*"
+              Principal:
+                CanonicalUser: !GetAtt OriginAccessIdentity.S3CanonicalUserId
+                AWS: "*"
+
+plugins:
+  - fullstack-serverless
+
+package:
+  individually: true
+  exclude:
+    - src/**
+    - tsconfig.spec.json
+    - tsconfig.json
+    - README.md
+    - ILLUSTRATION_PROMPTS.md
+    - angular.json
+    - package-lock.json
+    - package.json
+    - tsconfig.app.json
+    - node_modules/**
+    - .angular/**
+    - .github/**
+    - .vscode/**
+    - .editorconfig

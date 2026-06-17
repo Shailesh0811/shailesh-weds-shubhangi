@@ -1,0 +1,210 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1.2rem 0;
+  transition: all 0.4s ease;
+
+  &.scrolled {
+    background: rgba(255, 248, 240, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 2px 20px rgba(201, 168, 76, 0.15);
+    padding: 0.75rem 0;
+
+    [data-theme="dark"] & {
+      background: rgba(26, 16, 8, 0.95);
+    }
+
+    .nav__brand-script { color: var(--color-gold-dark); }
+  }
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    cursor: pointer;
+    user-select: none;
+
+    &-script {
+      font-family: var(--font-script);
+      font-size: 2.2rem;
+      color: var(--color-gold);
+      line-height: 1;
+      transition: var(--transition);
+
+      &:hover { color: var(--color-gold-dark); }
+    }
+
+    &-amp {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      color: var(--color-text-light);
+      font-style: italic;
+      margin: 0 0.1rem;
+    }
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    @media (max-width: 900px) { display: none; }
+  }
+
+  &__link {
+    padding: 0.5rem 0.85rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--color-text);
+    text-transform: uppercase;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+
+    &:hover {
+      color: var(--color-gold);
+      background: rgba(201, 168, 76, 0.08);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  &__theme-toggle {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-border);
+    background: var(--color-card-bg);
+    color: var(--color-gold);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+
+    &:hover {
+      background: var(--color-gold);
+      color: white;
+      border-color: var(--color-gold);
+      transform: rotate(20deg);
+    }
+  }
+
+  &__rsvp-btn {
+    padding: 0.55rem 1.4rem;
+    font-size: 0.82rem;
+
+    @media (max-width: 900px) { display: none; }
+  }
+
+  &__hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    width: 30px;
+    cursor: pointer;
+    padding: 0.25rem;
+    background: none;
+    border: none;
+
+    @media (max-width: 900px) { display: flex; }
+
+    span {
+      display: block;
+      height: 2px;
+      background: var(--color-gold);
+      border-radius: 2px;
+      transition: var(--transition);
+      transform-origin: center;
+    }
+  }
+
+  &.menu-open .nav__hamburger {
+    span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    span:nth-child(2) { opacity: 0; }
+    span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+  }
+
+  &__mobile {
+    display: none;
+    max-height: 0;
+    margin-top: 6px;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    background: var(--color-card-bg);
+    border-top: 1px solid var(--color-border);
+
+    @media (max-width: 900px) { display: block; }
+
+    &.open {
+      max-height: 500px;
+      padding: 1rem 0 1.5rem;
+    }
+  }
+
+  &__mobile-links {
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  &__mobile-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    transition: var(--transition);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+
+    i {
+      color: var(--color-gold);
+      width: 18px;
+    }
+
+    &:hover {
+      background: rgba(201, 168, 76, 0.08);
+      color: var(--color-gold);
+    }
+  }
+
+  &__mobile-rsvp {
+    margin: 1rem 1.5rem 0;
+    width: calc(100% - 3rem);
+    justify-content: center;
+  }
+}

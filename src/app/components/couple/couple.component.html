@@ -1,0 +1,107 @@
+<section class="couple" id="couple">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">The Couple</span>
+      <h2 class="section-title">Two Hearts, One Soul</h2>
+      <div class="section-divider">
+        <span class="divider-icon"><i class="fas fa-ring"></i></span>
+      </div>
+      <p class="section-subtitle">Two people, one journey, a lifetime of love</p>
+    </div>
+
+    <div class="couple__grid">
+      <!-- Groom Card -->
+      <div class="couple__card couple__card--groom reveal">
+        <div class="couple__image-frame">
+          <div class="couple__image-ring" aria-hidden="true"></div>
+          <div class="couple__image-wrap">
+            <img
+              [src]="groom.image"
+              [alt]="groom.name"
+              class="couple__photo"
+              (error)="$any($event.target).style.display='none'"
+            />
+            <div class="couple__photo-placeholder img-placeholder">
+              <i class="fas {{ groom.icon }}"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="couple__info">
+          <span class="couple__role">{{ groom.role }}</span>
+          <h3 class="couple__name">{{ groom.name }}</h3>
+          <div class="gold-line"></div>
+          <p class="couple__desc">{{ groom.description }}</p>
+
+          <div class="couple__tags">
+            @for (q of groom.qualities; track q) {
+              <span class="couple__tag">{{ q }}</span>
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- Center ampersand -->
+      <div class="couple__center reveal">
+        <div class="couple__and-circle">
+          <span class="couple__and">&</span>
+          <i class="fas fa-heart couple__and-heart"></i>
+        </div>
+        <div class="couple__and-lines">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <!-- Bride Card -->
+      <div class="couple__card couple__card--bride reveal">
+        <div class="couple__image-frame">
+          <div class="couple__image-ring" aria-hidden="true"></div>
+          <div class="couple__image-wrap">
+            <img
+              [src]="bride.image"
+              [alt]="bride.name"
+              class="couple__photo"
+              (error)="$any($event.target).style.display='none'"
+            />
+            <div class="couple__photo-placeholder img-placeholder">
+              <i class="fas {{ bride.icon }}"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="couple__info">
+          <span class="couple__role">{{ bride.role }}</span>
+          <h3 class="couple__name">{{ bride.name }}</h3>
+          <div class="gold-line"></div>
+          <p class="couple__desc">{{ bride.description }}</p>
+
+          <div class="couple__tags">
+            @for (q of bride.qualities; track q) {
+              <span class="couple__tag couple__tag--rose">{{ q }}</span>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Illustration + Quote -->
+    <div class="couple__bottom reveal">
+      <div class="couple__illustration-wrap">
+        <app-couple-art [illustration]="coupleIllustration" size="lg" [animate]="true"></app-couple-art>
+      </div>
+
+      <div class="couple__quote">
+        <i class="fas fa-quote-left couple__quote-icon"></i>
+        <p class="couple__quote-text">
+          "Being deeply loved by someone gives you strength, while loving someone deeply gives you courage."
+        </p>
+        <span class="couple__quote-author">— Lao Tzu</span>
+      </div>
+
+      <div class="couple__illustration-wrap">
+        <app-couple-art [illustration]="forheadIllustration" size="lg" [animate]="true"></app-couple-art>
+      </div>
+    </div>
+  </div>
+</section>

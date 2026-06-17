@@ -1,0 +1,51 @@
+name: shailesh-weds-shubhangi-prod
+
+on:
+  push:
+    branches:
+      - prod
+  workflow_dispatch:
+    inputs:
+      force_deploy:
+        description: 'Force deployment (skip tests)'
+        required: false
+        default: 'false'
+        type: boolean
+
+env:
+  deployment: prod
+
+jobs:
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+          node-version: "20.x"
+    - name: Install Angular CLI
+      run: npm install -g @angular/cli@latest
+    - name: Install Packages
+      run: npm install --force
+    - name: Install Serverless Framework
+      run: npm install -g serverless@3
+    - name: Authenticate Serverless
+      env:
+        SERVERLESS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY_ID_PROD }}
+      run: echo "Serverless authenticated"
+    - name: Install fullstack-serverless
+      run: npm install --save-dev fullstack-serverless --force
+    - name: Serverless AWS Authentication
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_PROD }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_PROD }}
+      run: sls config credentials --provider aws --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY
+    - name: Build Angular App
+      run: npm run build:prod
+    - name: List dist folder
+      run: ls -R dist/shailesh-weds-shubhangi/browser
+    - name: Deploy Static Website
+      run: sls deploy --stage prod
+    # - name: remove Static Website
+    #   run: sls remove --region us-east-1 --stage prod

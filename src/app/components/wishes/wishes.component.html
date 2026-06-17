@@ -1,0 +1,116 @@
+<section class="wishes" id="wishes">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Leave a Message</span>
+      <h2 class="section-title">Guest Wishes</h2>
+      <div class="section-divider">
+        <span class="divider-icon"><i class="fas fa-comment-heart"></i></span>
+      </div>
+      <p class="section-subtitle">Share your love and blessings with the happy couple</p>
+    </div>
+
+    <div class="wishes__layout">
+      <!-- Write a wish -->
+      <div class="wishes__write reveal">
+        <div class="wishes__write-header">
+          <i class="fas fa-pen-nib"></i>
+          <h3>Write a Wish</h3>
+        </div>
+
+        @if (justAdded()) {
+          <div class="wishes__added-msg">
+            <i class="fas fa-check-circle"></i>
+            Your wish has been added! Thank you ❤️
+          </div>
+        }
+
+        <form class="wishes__form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+          <div class="wishes__field">
+            <label class="wishes__label" for="wish-name">
+              <i class="fas fa-user"></i> Your Name <span>*</span>
+            </label>
+            <input
+              id="wish-name"
+              type="text"
+              class="wishes__input"
+              [class.error]="isInvalid('name')"
+              formControlName="name"
+              placeholder="Your name"
+            />
+            @if (isInvalid('name')) {
+              <span class="wishes__error">
+                @if (f['name'].errors?.['required']) { Name is required }
+                @else { Name must be at least 2 characters }
+              </span>
+            }
+          </div>
+
+          <div class="wishes__field">
+            <label class="wishes__label" for="wish-message">
+              <i class="fas fa-heart"></i> Your Wish <span>*</span>
+            </label>
+            <textarea
+              id="wish-message"
+              class="wishes__textarea"
+              [class.error]="isInvalid('message')"
+              formControlName="message"
+              rows="5"
+              placeholder="Share your blessings, wishes, or a memory with the couple..."
+            ></textarea>
+            <div class="wishes__char-count">
+              {{ (f['message'].value || '').length }} / 250
+            </div>
+            @if (isInvalid('message')) {
+              <span class="wishes__error">
+                @if (f['message'].errors?.['required']) { Please write a wish }
+                @else if (f['message'].errors?.['minlength']) { Wish must be at least 5 characters }
+                @else { Cannot exceed 250 characters }
+              </span>
+            }
+          </div>
+
+          <button type="submit" class="btn btn--primary wishes__submit">
+            <i class="fas fa-paper-plane"></i>
+            Send Blessings
+          </button>
+        </form>
+      </div>
+
+      <!-- Wishes List -->
+      <div class="wishes__list-wrap reveal">
+        <div class="wishes__list-header">
+          <i class="fas fa-heart"></i>
+          <h3>Blessings & Wishes</h3>
+          <span class="wishes__count">{{ wishesService.wishes().length }}</span>
+        </div>
+
+        <div class="wishes__list">
+          @if (wishesService.wishes().length === 0) {
+            <div class="wishes__empty">
+              <i class="fas fa-comment-dots"></i>
+              <p>Be the first to share your wishes!</p>
+            </div>
+          } @else {
+            @for (wish of wishesService.wishes(); track wish.id) {
+              <div class="wishes__item">
+                <div class="wishes__avatar">
+                  {{ getInitials(wish.name) }}
+                </div>
+                <div class="wishes__content">
+                  <div class="wishes__meta">
+                    <strong class="wishes__wisher">{{ wish.name }}</strong>
+                    <span class="wishes__time">{{ formatDate(wish.timestamp) }}</span>
+                  </div>
+                  <p class="wishes__message">
+                    <i class="fas fa-quote-left"></i>
+                    {{ wish.message }}
+                  </p>
+                </div>
+              </div>
+            }
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

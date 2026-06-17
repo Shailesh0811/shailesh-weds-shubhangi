@@ -1,0 +1,90 @@
+<section class="hero" id="hero">
+  <!-- Animated petals -->
+  <div class="hero__petals" aria-hidden="true">
+    @for (p of petals; track p) {
+      <span class="petal">🌸</span>
+    }
+  </div>
+
+  <!-- Background image with overlay -->
+  <div class="hero__bg">
+    <!-- Add couple-hero.jpg to assets/images/ to show a real background photo -->
+    <div class="hero__overlay"></div>
+  </div>
+
+  <!-- Decorative corners -->
+  <div class="hero__corner hero__corner--tl" aria-hidden="true"></div>
+  <div class="hero__corner hero__corner--tr" aria-hidden="true"></div>
+  <div class="hero__corner hero__corner--bl" aria-hidden="true"></div>
+  <div class="hero__corner hero__corner--br" aria-hidden="true"></div>
+
+  <!-- Two-column layout -->
+  <div class="hero__layout">
+    <!-- Left: illustration -->
+    <div class="hero__illustration-col">
+      <app-couple-art
+        [illustration]="heroIllustration"
+        size="xl"
+        [animate]="true"
+      ></app-couple-art>
+    </div>
+
+    <!-- Right: text content -->
+    <div class="hero__content">
+      <p class="hero__together">Together With Their Families</p>
+
+      <div class="hero__names-block">
+        <h1 class="hero__name hero__name--groom">Er. Shailesh Mohite</h1>
+        <div class="hero__ampersand">
+          <span class="hero__amp-symbol">&</span>
+          <div class="hero__amp-lines">
+            <span></span>
+            <i class="fas fa-ring"></i>
+            <span></span>
+          </div>
+        </div>
+        <h1 class="hero__name hero__name--bride">Dr. Shubhangi Pandit</h1>
+      </div>
+
+      <p class="hero__invite">Invite You To Celebrate Their Wedding</p>
+
+      <div class="hero__date-badge">
+        <i class="fas fa-calendar-alt"></i>
+        <span>26th November 2026</span>
+      </div>
+
+      <!-- Countdown -->
+      <div class="hero__countdown">
+        @if (weddingPassed()) {
+          <p class="hero__married-text">
+            <i class="fas fa-heart"></i> We Are Married! <i class="fas fa-heart"></i>
+          </p>
+        } @else {
+          @for (unit of countdown(); track unit.label) {
+            <div class="hero__countdown-item">
+              <span class="hero__countdown-value">{{ unit.value.toString().padStart(2, '0') }}</span>
+              <span class="hero__countdown-label">{{ unit.label }}</span>
+            </div>
+          }
+        }
+      </div>
+
+      <!-- CTA -->
+      <div class="hero__actions">
+        <button class="btn btn--primary hero__save-btn" (click)="scrollToRsvp()">
+          <i class="fas fa-calendar-heart"></i>
+          Save the Date
+        </button>
+        <button class="btn btn--white hero__story-btn" (click)="scrollDown()">
+          <i class="fas fa-book-open"></i>
+          Our Story
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <button class="hero__scroll-down" (click)="scrollDown()" aria-label="Scroll down">
+    <i class="fas fa-chevron-down"></i>
+  </button>
+</section>

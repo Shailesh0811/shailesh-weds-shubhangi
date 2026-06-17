@@ -1,0 +1,87 @@
+<section class="venue" id="venue">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Find Us</span>
+      <h2 class="section-title">Wedding Venue</h2>
+      <div class="section-divider">
+        <span class="divider-icon"><i class="fas fa-map-marker-alt"></i></span>
+      </div>
+      <p class="section-subtitle">We look forward to celebrating with you here</p>
+    </div>
+
+    <div class="venue__layout">
+      <!-- Venue Info Card -->
+      <div class="venue__info reveal">
+        <div class="venue__header">
+          <div class="venue__icon">
+            <i class="fas fa-church"></i>
+          </div>
+          <div>
+            <h3 class="venue__name">{{ venue.name }}</h3>
+            <p class="venue__tagline">Main Wedding Ceremony Venue</p>
+          </div>
+        </div>
+
+        <div class="venue__address">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <p>{{ venue.address }}</p>
+            <p>{{ venue.city }}</p>
+            <p>{{ venue.state }}</p>
+          </div>
+        </div>
+
+        <div class="venue__contacts">
+          <a [href]="'tel:' + venue.phone" class="venue__contact">
+            <i class="fas fa-phone"></i>
+            <span>{{ venue.phone }}</span>
+          </a>
+          <a [href]="'mailto:' + venue.email" class="venue__contact">
+            <i class="fas fa-envelope"></i>
+            <span>{{ venue.email }}</span>
+          </a>
+        </div>
+
+        <!-- Features -->
+        <div class="venue__features">
+          @for (f of features; track f.label) {
+            <div class="venue__feature">
+              <div class="venue__feature-icon">
+                <i class="fas {{ f.icon }}"></i>
+              </div>
+              <div>
+                <strong>{{ f.label }}</strong>
+                <span>{{ f.desc }}</span>
+              </div>
+            </div>
+          }
+        </div>
+
+        <button class="btn btn--primary venue__directions" (click)="openDirections()">
+          <i class="fas fa-directions"></i>
+          Get Directions
+        </button>
+      </div>
+
+      <!-- Map -->
+      <div class="venue__map-wrap reveal">
+        <div class="venue__map-frame">
+          <iframe
+            [src]="mapUrl"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Wedding Venue Location"
+          ></iframe>
+        </div>
+        <div class="venue__map-label">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>{{ venue.name }}, {{ venue.city }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

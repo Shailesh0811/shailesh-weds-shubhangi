@@ -1,0 +1,60 @@
+<nav class="nav" [class.scrolled]="isScrolled()" [class.menu-open]="menuOpen()">
+  <div class="nav__container">
+    <!-- Logo / Brand -->
+    <div class="nav__brand" (click)="scrollTo('hero')">
+      <span class="nav__brand-script">S</span>
+      <span class="nav__brand-amp">&</span>
+      <span class="nav__brand-script">S</span>
+    </div>
+
+    <!-- Desktop Menu -->
+    <ul class="nav__links">
+      @for (item of navItems; track item.target) {
+        <li>
+          <button class="nav__link" (click)="scrollTo(item.target)">
+            {{ item.label }}
+          </button>
+        </li>
+      }
+    </ul>
+
+    <!-- Right Actions -->
+    <div class="nav__actions">
+      <button class="nav__theme-toggle" (click)="theme.toggle()" [attr.aria-label]="theme.isDark() ? 'Switch to light mode' : 'Switch to dark mode'">
+        @if (theme.isDark()) {
+          <i class="fas fa-sun"></i>
+        } @else {
+          <i class="fas fa-moon"></i>
+        }
+      </button>
+
+      <button class="nav__rsvp-btn btn btn--primary" (click)="scrollTo('rsvp')">
+        RSVP Now
+      </button>
+
+      <!-- Hamburger -->
+      <button class="nav__hamburger" (click)="toggleMenu()" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="nav__mobile" [class.open]="menuOpen()">
+    <ul class="nav__mobile-links">
+      @for (item of navItems; track item.target) {
+        <li>
+          <button class="nav__mobile-link" (click)="scrollTo(item.target)">
+            <i class="fas {{ item.icon }}"></i>
+            <span>{{ item.label }}</span>
+          </button>
+        </li>
+      }
+    </ul>
+    <button class="btn btn--primary nav__mobile-rsvp" (click)="scrollTo('rsvp')">
+      RSVP Now
+    </button>
+  </div>
+</nav>

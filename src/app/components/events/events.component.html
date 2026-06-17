@@ -1,0 +1,54 @@
+<section class="events" id="events">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Celebrations</span>
+      <h2 class="section-title">Wedding Events</h2>
+      <div class="section-divider">
+        <span class="divider-icon"><i class="fas fa-calendar-alt"></i></span>
+      </div>
+      <p class="section-subtitle">Join us for each beautiful moment of our wedding celebrations</p>
+    </div>
+
+    <div class="events__grid">
+      @for (event of events; track event.title) {
+        <div class="events__card reveal">
+          <div class="events__icon-wrap" [style.background]="event.color + '20'" [style.border-color]="event.color + '40'">
+            <i class="fas {{ event.icon }}" [style.color]="event.color"></i>
+          </div>
+
+          <div class="events__content">
+            <h3 class="events__title">{{ event.title }}</h3>
+
+            <div class="events__details">
+              <div class="events__detail">
+                <i class="fas fa-calendar"></i>
+                <span>{{ event.date }}</span>
+              </div>
+              <div class="events__detail">
+                <i class="fas fa-clock"></i>
+                <span>{{ event.time }}</span>
+              </div>
+              <div class="events__detail">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>{{ event.venue }}</span>
+              </div>
+              <div class="events__detail events__detail--address">
+                <i class="fas fa-location-dot"></i>
+                <span>{{ event.address }}</span>
+              </div>
+            </div>
+
+            <p class="events__desc">{{ event.description }}</p>
+
+            <div class="events__dress">
+              <i class="fas fa-shirt"></i>
+              <span>{{ event.dress }}</span>
+            </div>
+          </div>
+
+          <div class="events__accent" [style.background]="event.color"></div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

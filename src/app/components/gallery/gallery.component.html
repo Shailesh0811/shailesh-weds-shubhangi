@@ -1,0 +1,71 @@
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Memories</span>
+      <h2 class="section-title">Our Gallery</h2>
+      <div class="section-divider">
+        <span class="divider-icon"><i class="fas fa-images"></i></span>
+      </div>
+      <p class="section-subtitle">Moments captured, memories treasured forever</p>
+    </div>
+
+    <div class="gallery__grid">
+      @for (item of items; track item.src; let i = $index) {
+        <div class="gallery__item gallery__item--{{ item.span }} reveal" (click)="open(i)" role="button" tabindex="0" (keydown.enter)="open(i)">
+          <div class="gallery__img-wrap">
+            <img
+              [src]="item.src"
+              [alt]="item.alt"
+              loading="lazy"
+              class="gallery__img"
+              (error)="$any($event.target).style.display='none'; $any($event.target).parentElement.classList.add('placeholder-active')"
+            />
+            <div class="gallery__placeholder img-placeholder">
+              <i class="fas {{ placeholderIcons[i] }}"></i>
+            </div>
+          </div>
+          <div class="gallery__overlay">
+            <div class="gallery__zoom">
+              <i class="fas fa-expand-alt"></i>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  @if (lightboxOpen()) {
+    <div class="gallery__lightbox" (click)="close()">
+      <div class="gallery__lightbox-inner" (click)="$event.stopPropagation()">
+        <button class="gallery__lightbox-close" (click)="close()" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </button>
+
+        <button class="gallery__lightbox-nav gallery__lightbox-nav--prev" (click)="prev()" aria-label="Previous">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <div class="gallery__lightbox-img-wrap">
+          <img
+            [src]="items[currentIndex()].src"
+            [alt]="items[currentIndex()].alt"
+            class="gallery__lightbox-img"
+            (error)="$any($event.target).style.display='none'"
+          />
+          <div class="gallery__lightbox-placeholder img-placeholder">
+            <i class="fas {{ placeholderIcons[currentIndex()] }}"></i>
+          </div>
+        </div>
+
+        <button class="gallery__lightbox-nav gallery__lightbox-nav--next" (click)="next()" aria-label="Next">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <div class="gallery__lightbox-counter">
+          {{ currentIndex() + 1 }} / {{ items.length }}
+        </div>
+      </div>
+    </div>
+  }
+</section>

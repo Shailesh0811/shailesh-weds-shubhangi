@@ -1,0 +1,50 @@
+<section class="story" id="story">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Our Journey</span>
+      <h2 class="section-title">Our Love Story</h2>
+      <div class="section-divider">
+        <span class="divider-icon"><i class="fas fa-heart"></i></span>
+      </div>
+      <p class="section-subtitle">Every love story is beautiful, but ours is our favourite</p>
+    </div>
+
+    <div class="story__timeline">
+      <!-- Vertical line -->
+      <div class="story__line" aria-hidden="true"></div>
+
+      @for (event of events; track event.year) {
+        <div
+          class="story__item story__item--{{ event.side }} reveal"
+          #timelineItem
+        >
+          <!-- Year bubble on line -->
+          <div class="story__year-bubble">
+            <i class="fas {{ event.icon }}"></i>
+          </div>
+
+          <!-- Card -->
+          <div class="story__card card">
+            <div class="story__image">
+              <img
+                [src]="event.image"
+                [alt]="event.title"
+                (error)="$any($event.target).parentElement.classList.add('no-img')"
+              />
+              <div class="story__image-placeholder img-placeholder">
+                <i class="fas {{ event.icon }}"></i>
+              </div>
+            </div>
+
+            <div class="story__content">
+              <span class="story__year">{{ event.year }}</span>
+              <h3 class="story__title">{{ event.title }}</h3>
+              <div class="gold-line"></div>
+              <p class="story__desc">{{ event.description }}</p>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

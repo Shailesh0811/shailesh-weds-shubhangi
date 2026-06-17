@@ -1,0 +1,76 @@
+<section class="family" id="family">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">With Blessings Of</span>
+      <h2 class="section-title">Our Families</h2>
+      <div class="section-divider">
+        <span class="divider-icon"><i class="fas fa-users"></i></span>
+      </div>
+      <p class="section-subtitle">Two families united by love, strengthened by tradition</p>
+    </div>
+
+    <div class="family__grid">
+      @for (family of families; track family.label) {
+        <div class="family__group reveal">
+          <!-- Group Header -->
+          <div class="family__group-header" [style.--accent]="family.color">
+            <div class="family__group-icon" [style.background]="family.color + '20'" [style.border-color]="family.color + '50'">
+              <i class="fas {{ family.icon }}" [style.color]="family.color"></i>
+            </div>
+            <div>
+              <span class="family__group-label">{{ family.side }}</span>
+              <h3 class="family__group-name">{{ family.label }}</h3>
+            </div>
+          </div>
+
+          <!-- Parents -->
+          <div class="family__parents">
+            <p class="family__sub-heading">
+              <i class="fas fa-star"></i> Parents
+            </p>
+            <div class="family__members family__members--parents">
+              @for (member of family.parents; track member.name) {
+                <div class="family__member family__member--parent">
+                  <div class="family__avatar" [style.background]="family.color + '20'" [style.border-color]="family.color + '50'">
+                    <i class="fas {{ member.icon }}" [style.color]="family.color"></i>
+                  </div>
+                  <div class="family__member-info">
+                    <span class="family__member-name">{{ member.name }}</span>
+                    <span class="family__member-relation" [style.color]="family.color">{{ member.relation }}</span>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+
+          <!-- Other Members -->
+          <div class="family__others">
+            <p class="family__sub-heading">
+              <i class="fas fa-heart"></i> Family Members
+            </p>
+            <div class="family__members">
+              @for (member of family.members; track member.name) {
+                <div class="family__member">
+                  <div class="family__avatar family__avatar--sm" [style.background]="family.color + '15'" [style.border-color]="family.color + '40'">
+                    <i class="fas {{ member.icon }}" [style.color]="family.color"></i>
+                  </div>
+                  <div class="family__member-info">
+                    <span class="family__member-name">{{ member.name }}</span>
+                    <span class="family__member-relation" [style.color]="family.color">{{ member.relation }}</span>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Unity Banner -->
+    <div class="family__unity reveal">
+      <i class="fas fa-heart family__unity-heart"></i>
+      <p>Two families, one beautiful bond</p>
+      <i class="fas fa-heart family__unity-heart"></i>
+    </div>
+  </div>
+</section>
