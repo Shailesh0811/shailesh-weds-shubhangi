@@ -20,7 +20,7 @@ export class GalleryComponent {
 
   items: GalleryItem[] = [
     { src: 'assets/images/couple/romantic-embrace.png',  alt: 'Romantic Embrace',   span: 'wide'   },
-    { src: 'assets/images/couple/selfie-together.png',   alt: 'Selfie Together',     span: 'normal' },
+    { src: 'assets/images/couple/romantic-close.png',   alt: 'Selfie Together',     span: 'normal' },
     { src: 'assets/images/couple/engagement-ring.png',   alt: 'Engagement Ring',     span: 'tall'   },
     { src: 'assets/images/couple/shy-surprise.png',      alt: 'Sweet Surprise',      span: 'normal' },
     { src: 'assets/images/couple/cheek-kiss.png',        alt: 'Cheek Kiss',          span: 'normal' },

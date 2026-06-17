@@ -21,13 +21,13 @@ interface Person {
 })
 export class CoupleComponent {
   illustrations = inject(IllustrationsService);
-  coupleIllustration = this.illustrations.getById('selfie-together') ?? this.illustrations.all[0];
+  coupleIllustration = this.illustrations.getById('romantic-close') ?? this.illustrations.all[0];
   forheadIllustration = this.illustrations.getById('forehead-touch') ?? this.illustrations.all[0];
 
   groom: Person = {
     name: 'Er. Shailesh Mohite',
     role: 'The Groom',
-    image: 'assets/images/couple/selfie-together.png',
+    image: 'assets/images/couple/romantic-close.png',
     description: 'A dedicated Software Engineer with a heart full of love and a mind sharp as a blade. Shailesh brings warmth, laughter, and unwavering loyalty to everything he does. His gentle nature, thoughtfulness, and infectious smile won Shubhangi\'s heart forever.',
     qualities: ['Engineering', 'Passionate', 'Adventurous', 'Caring'],
     icon: 'fa-user-tie',

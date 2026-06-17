@@ -13,13 +13,13 @@ export class IllustrationsService {
       pngFile: `${this.BASE}/engagement-ring.png`,
       description: 'Couple at engagement ring ceremony'
     },
-    {
-      id: 'selfie-together',
-      label: 'Selfie Together',
-      svgFile: '',
-      pngFile: `${this.BASE}/selfie-together.png`,
-      description: 'Couple taking a romantic selfie'
-    },
+    // {
+    //   id: 'selfie-together',
+    //   label: 'Selfie Together',
+    //   svgFile: '',
+    //   pngFile: `${this.BASE}/selfie-together.png`,
+    //   description: 'Couple taking a romantic selfie'
+    // },
     {
       id: 'shy-surprise',
       label: 'Sweet Surprise',

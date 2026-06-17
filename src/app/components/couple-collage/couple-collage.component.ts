@@ -27,7 +27,7 @@ export class CoupleCollageComponent {
 
   // Right column (top to bottom)
   rightSlots: CollageSlot[] = [
-    { id: 'selfie-together',  label: 'Selfie Time',       src: `${this.BASE}/selfie-together.png`  },
+    { id: 'forehead-touch',  label: 'Selfie Time',       src: `${this.BASE}/forehead-touch.png`  },
     { id: 'cheek-kiss',       label: 'Cheek Kiss',        src: `${this.BASE}/cheek-kiss.png`       },
     { id: 'tender-embrace',   label: 'Tender Embrace',    src: `${this.BASE}/tender-embrace.png`   },
     { id: 'loving-moment',    label: 'Loving Moment',     src: `${this.BASE}/loving-moment.png`    },
