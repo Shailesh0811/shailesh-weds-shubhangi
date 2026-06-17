@@ -14,7 +14,7 @@
     box-shadow: 0 2px 20px rgba(201, 168, 76, 0.15);
     padding: 0.75rem 0;
 
-    [data-theme="dark"] & {
+    :host-context([data-theme="dark"]) & {
       background: rgba(26, 16, 8, 0.95);
     }
 
@@ -112,6 +112,8 @@
       border-color: var(--color-gold);
       transform: rotate(20deg);
     }
+
+    @media (max-width: 900px) { display: none; }
   }
 
   &__rsvp-btn {

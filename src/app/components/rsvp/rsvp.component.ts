@@ -22,7 +22,7 @@ export class RsvpComponent {
 
   attendance = [
     { value: 'yes-all', label: 'Attending All Events', icon: 'fa-check-circle' },
-    { value: 'yes-wedding', label: 'Wedding Day Only', icon: 'fa-church' },
+    { value: 'yes-wedding', label: 'Wedding Day Only', icon: 'fa-place-of-worshipfa-solid fa-gopuram' },
     { value: 'no', label: 'Unable to Attend', icon: 'fa-times-circle' },
   ];
 

@@ -52,6 +52,17 @@
           </button>
         </li>
       }
+      <li>
+        <button class="nav__mobile-link" (click)="theme.toggle()">
+          @if (theme.isDark()) {
+            <i class="fas fa-sun"></i>
+            <span>Light Mode</span>
+          } @else {
+            <i class="fas fa-moon"></i>
+            <span>Dark Mode</span>
+          }
+        </button>
+      </li>
     </ul>
     <button class="btn btn--primary nav__mobile-rsvp" (click)="scrollTo('rsvp')">
       RSVP Now
