@@ -19,20 +19,15 @@ export class GalleryComponent {
   currentIndex = signal(0);
 
   items: GalleryItem[] = [
-    { src: 'assets/images/couple/romantic-embrace.png',  alt: 'Romantic Embrace',   span: 'wide'   },
-    { src: 'assets/images/couple/romantic-close.png',   alt: 'Selfie Together',     span: 'normal' },
-    { src: 'assets/images/couple/engagement-ring.png',   alt: 'Engagement Ring',     span: 'tall'   },
-    { src: 'assets/images/couple/shy-surprise.png',      alt: 'Sweet Surprise',      span: 'normal' },
-    { src: 'assets/images/couple/cheek-kiss.png',        alt: 'Cheek Kiss',          span: 'normal' },
-    { src: 'assets/images/couple/selfie-love.png',       alt: 'Selfie Love',         span: 'wide'   },
-    { src: 'assets/images/couple/warm-hug.png',          alt: 'Warm Hug',            span: 'normal' },
-    { src: 'assets/images/couple/forehead-touch.png',    alt: 'Forehead Touch',      span: 'tall'   },
-    { src: 'assets/images/couple/lovers-gaze.png',       alt: "Lover's Gaze",        span: 'normal' },
-    { src: 'assets/images/couple/sweet-nuzzle.png',      alt: 'Sweet Nuzzle',        span: 'normal' },
-    { src: 'assets/images/couple/tender-embrace.png',    alt: 'Tender Embrace',      span: 'wide'   },
-    { src: 'assets/images/couple/romantic-close.png',    alt: 'Romantic Close',      span: 'normal' },
-    { src: 'assets/images/couple/intimate-close.png',    alt: 'Intimate Moment',     span: 'normal' },
-    { src: 'assets/images/couple/loving-moment.png',     alt: 'Loving Moment',       span: 'normal' },
+    { src: 'assets/images/gallery/together/together-2.jpg', alt: 'Together Forever',   span: 'normal' },
+    { src: 'assets/images/gallery/groom/Shailesh.jpg',       alt: 'Er. Shailesh Mohite', span: 'tall'   },
+    { src: 'assets/images/gallery/bride/Shubhangi.JPG',      alt: 'Dr. Shubhangi Pandit', span: 'tall'   },
+    { src: 'assets/images/gallery/together/together-5.jpg',  alt: 'Forehead Kiss',       span: 'normal' },
+    { src: 'assets/images/gallery/together/together-1.jpg',  alt: 'Cheek Kiss',          span: 'normal' },
+    { src: 'assets/images/gallery/together/together-6.jpg',  alt: 'Selfie Time',         span: 'normal' },
+    { src: 'assets/images/gallery/together/together-3.jpg',  alt: 'Sweet Smiles',        span: 'normal' },
+    { src: 'assets/images/gallery/together/together-4.jpg',  alt: 'Close Together',      span: 'normal' },
+    { src: 'assets/images/gallery/together/together-7.jpg',  alt: 'Warm Moment',         span: 'normal' },
   ];
 
   placeholderIcons = ['fa-heart', 'fa-camera', 'fa-star', 'fa-ring', 'fa-sun', 'fa-music', 'fa-flower', 'fa-diamond', 'fa-camera-retro'];

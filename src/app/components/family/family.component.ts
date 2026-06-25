@@ -51,7 +51,7 @@ export class FamilyComponent {
         { name: 'Mrs. Sangita Subhashrao Pandit', relation: 'Mother', icon: 'fa-user' },
       ],
       members: [
-        { name: 'Mr. Sayli Pandit', relation: 'Brother', icon: 'fa-user-tie' },
+        { name: 'Miss. Sayli Pandit', relation: 'Sister', icon: 'fa-user' },
         { name: 'Miss. Khushi Pandit', relation: 'Sister', icon: 'fa-user' },
         // { name: 'Mr. Vinay Pandit', relation: 'Uncle', icon: 'fa-user-tie' },
         // { name: 'Mrs. Meena Pandit', relation: 'Aunt', icon: 'fa-user' },

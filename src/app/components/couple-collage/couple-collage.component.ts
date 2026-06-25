@@ -15,31 +15,34 @@ interface CollageSlot {
   styleUrl: './couple-collage.component.scss'
 })
 export class CoupleCollageComponent {
-  readonly BASE = 'assets/images/couple';
+  readonly BASE = 'assets/images/gallery/together';
+
+  // Center feature photo
+  centerPhoto = `${this.BASE}/together-2.jpg`;
 
   // Left column (top to bottom)
   leftSlots: CollageSlot[] = [
-    { id: 'engagement-ring',  label: 'Our Engagement',    src: `${this.BASE}/engagement-ring.png`  },
-    { id: 'shy-surprise',     label: 'Sweet Surprise',    src: `${this.BASE}/shy-surprise.png`     },
-    { id: 'sweet-nuzzle',     label: 'Tender Nuzzle',     src: `${this.BASE}/sweet-nuzzle.png`     },
-    { id: 'intimate-close',   label: 'Intimate Moment',   src: `${this.BASE}/intimate-close.png`   },
+    { id: 'together-1', label: 'Cheek Kiss',       src: `${this.BASE}/together-1.jpg` },
+    { id: 'together-2', label: 'Together Forever', src: `${this.BASE}/together-2.jpg` },
+    { id: 'together-3', label: 'Sweet Smiles',      src: `${this.BASE}/together-3.jpg` },
+    { id: 'together-4', label: 'Close Together',    src: `${this.BASE}/together-4.jpg` },
   ];
 
   // Right column (top to bottom)
   rightSlots: CollageSlot[] = [
-    { id: 'forehead-touch',  label: 'Selfie Time',       src: `${this.BASE}/forehead-touch.png`  },
-    { id: 'cheek-kiss',       label: 'Cheek Kiss',        src: `${this.BASE}/cheek-kiss.png`       },
-    { id: 'tender-embrace',   label: 'Tender Embrace',    src: `${this.BASE}/tender-embrace.png`   },
-    { id: 'loving-moment',    label: 'Loving Moment',     src: `${this.BASE}/loving-moment.png`    },
+    { id: 'together-5', label: 'Forehead Kiss', src: `${this.BASE}/together-5.jpg` },
+    { id: 'together-6', label: 'Selfie Time',   src: `${this.BASE}/together-6.jpg` },
+    { id: 'together-7', label: 'Warm Moment',   src: `${this.BASE}/together-7.jpg` },
+    { id: 'together-1', label: 'Cheek Kiss',    src: `${this.BASE}/together-1.jpg` },
   ];
 
-  // Bottom row — 3 wide slots
+  // Bottom row — 6 slots
   bottomSlots: CollageSlot[] = [
-    { id: 'romantic-embrace', label: 'Romantic Embrace',  src: `${this.BASE}/romantic-embrace.png` },
-    { id: 'warm-hug',         label: 'Warm Hug',          src: `${this.BASE}/warm-hug.png`         },
-    { id: 'forehead-touch',   label: 'Forehead Touch',    src: `${this.BASE}/forehead-touch.png`   },
-    { id: 'selfie-love',      label: 'Selfie Love',       src: `${this.BASE}/selfie-love.png`      },
-    { id: 'romantic-close',   label: 'Romantic Close',    src: `${this.BASE}/romantic-close.png`   },
-    { id: 'lovers-gaze',      label: "Lover's Gaze",      src: `${this.BASE}/lovers-gaze.png`      },
+    { id: 'together-2', label: 'Together Forever', src: `${this.BASE}/together-2.jpg` },
+    { id: 'together-3', label: 'Sweet Smiles',      src: `${this.BASE}/together-3.jpg` },
+    { id: 'together-4', label: 'Close Together',    src: `${this.BASE}/together-4.jpg` },
+    { id: 'together-5', label: 'Forehead Kiss',     src: `${this.BASE}/together-5.jpg` },
+    { id: 'together-6', label: 'Selfie Time',       src: `${this.BASE}/together-6.jpg` },
+    { id: 'together-7', label: 'Warm Moment',       src: `${this.BASE}/together-7.jpg` },
   ];
 }

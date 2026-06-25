@@ -23,10 +23,9 @@ export class VenueComponent {
   };
 
   features = [
-    { icon: 'fa-users', label: '500+ Guests', desc: 'Spacious venue' },
+    { icon: 'fa-users', label: '1100+ Guests', desc: 'Spacious venue' },
     { icon: 'fa-parking', label: 'Ample Parking', desc: 'Free parking available' },
-    { icon: 'fa-utensils', label: 'Catering', desc: 'In-house catering' },
-    { icon: 'fa-snowflake', label: 'AC Hall', desc: 'Climate controlled' },
+    { icon: 'fa-utensils', label: 'Catering', desc: 'In-house catering' }
   ];
 
   constructor(private sanitizer: DomSanitizer) {

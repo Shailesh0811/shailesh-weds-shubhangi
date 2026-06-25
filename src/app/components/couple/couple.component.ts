@@ -27,7 +27,7 @@ export class CoupleComponent {
   groom: Person = {
     name: 'Er. Shailesh Mohite',
     role: 'The Groom',
-    image: 'assets/images/couple/romantic-close.png',
+    image: 'assets/images/gallery/groom/Shailesh.jpg',
     description: 'A dedicated Software Engineer with a heart full of love and a mind sharp as a blade. Shailesh brings warmth, laughter, and unwavering loyalty to everything he does. His gentle nature, thoughtfulness, and infectious smile won Shubhangi\'s heart forever.',
     qualities: ['Engineering', 'Passionate', 'Adventurous', 'Caring'],
     icon: 'fa-user-tie',
@@ -36,7 +36,7 @@ export class CoupleComponent {
   bride: Person = {
     name: 'Dr. Shubhangi Pandit',
     role: 'The Bride',
-    image: 'assets/images/couple/romantic-embrace.png',
+    image: 'assets/images/gallery/bride/Shubhangi.JPG',
     description: 'A brilliant Doctor whose grace and compassion light up every room. Shubhangi combines intellect with warmth, dedication with joy, and resilience with kindness. Her beautiful soul and loving spirit make her the perfect life partner.',
     qualities: ['Medicine', 'Graceful', 'Compassionate', 'Brilliant'],
     icon: 'fa-user-nurse',

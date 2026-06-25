@@ -31,7 +31,12 @@
       <div class="collage__center">
         <div class="collage__photo-frame">
           <div class="collage__photo-ring" aria-hidden="true"></div>
-          <!-- Place your couple photo at assets/images/couple-hero.jpg to show here -->
+          <img
+            [src]="centerPhoto"
+            alt="Shailesh & Shubhangi"
+            class="collage__center-photo"
+            loading="lazy"
+          />
 
           <div class="collage__center-fallback">
             <span class="collage__name-script">Shailesh</span>
