@@ -25,7 +25,7 @@ export class StoryComponent implements AfterViewInit {
       year: '03 May 2026',
       title: 'First Meeting',
       description: 'Two souls destined to meet found each other for the very first time. A moment that neither of them knew would change their lives forever — the beginning of a beautiful love story.',
-      image: 'assets/images/gallery/together/firstMeet.png',
+      image: 'assets/images/couple/selfie-together.png',
       icon: 'fa-star',
       side: 'left'
     },
@@ -33,7 +33,7 @@ export class StoryComponent implements AfterViewInit {
       year: '10 May 2026',
       title: 'Supari Karyakram',
       description: 'With the blessings of both families and the joy of two households uniting, the auspicious Supari Karyakram marked the formal beginning of Shailesh and Shubhangi\'s journey towards a lifetime together.',
-      image: 'assets/images/gallery/together/together-7.jpg',
+      image: 'assets/images/couple/supari.png',
       icon: 'fa-ring',
       side: 'right'
     },
