@@ -33,7 +33,7 @@ export class CoupleCollageComponent {
     { id: 'together-5', label: 'Forehead Kiss', src: `${this.BASE}/together-5.jpg` },
     { id: 'together-6', label: 'Selfie Time',   src: `${this.BASE}/together-6.jpg` },
     { id: 'together-7', label: 'Warm Moment',   src: `${this.BASE}/together-7.jpg` },
-    { id: 'together-1', label: 'Cheek Kiss',    src: `${this.BASE}/together-1.jpg` },
+    // { id: 'together-1', label: 'Cheek Kiss',    src: `${this.BASE}/together-1.jpg` },
   ];
 
   // Bottom row — 6 slots
