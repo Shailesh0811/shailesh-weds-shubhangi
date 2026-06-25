@@ -83,5 +83,33 @@
         </div>
       </div>
     </div>
+
+    <!-- How to Reach -->
+    <div class="venue__transport reveal">
+      <h3 class="venue__transport-title">
+        <i class="fas fa-route"></i>
+        How to Reach
+      </h3>
+
+      <div class="venue__transport-grid">
+        @for (t of transportOptions; track t.title) {
+          <div class="venue__transport-card">
+            <div class="venue__transport-icon">
+              <i class="fas {{ t.icon }}"></i>
+            </div>
+            <h4 class="venue__transport-name">{{ t.title }}</h4>
+            <p class="venue__transport-primary">{{ t.primary }}</p>
+            <ul class="venue__transport-details">
+              @for (d of t.details; track d) {
+                <li>{{ d }}</li>
+              }
+            </ul>
+            @if (t.note) {
+              <p class="venue__transport-note">{{ t.note }}</p>
+            }
+          </div>
+        }
+      </div>
+    </div>
   </div>
 </section>

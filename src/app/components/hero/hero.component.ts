@@ -33,6 +33,18 @@ export class HeroComponent implements OnInit, OnDestroy {
   illustrations = inject(IllustrationsService);
   heroIllustration = this.illustrations.getById('engagement-ring') ?? this.illustrations.all[0];
 
+  groom = {
+    name: 'Er. Shailesh Mohite',
+    profession: 'Software Engineer',
+    parentage: 'Son of Subedar Major Shivaji Kisan Mohite & Mrs. Savita Shivaji Mohite'
+  };
+
+  bride = {
+    name: 'Dr. Shubhangi Pandit',
+    profession: 'Doctor',
+    parentage: 'Daughter of Mr. Subhashrao Pandit & Mrs. Sangita Subhashrao Pandit'
+  };
+
   ngOnInit(): void {
     this.updateCountdown();
     this.timer = setInterval(() => this.updateCountdown(), 1000);

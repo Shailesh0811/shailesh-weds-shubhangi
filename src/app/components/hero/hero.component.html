@@ -34,7 +34,12 @@
       <p class="hero__together">Together With Their Families</p>
 
       <div class="hero__names-block">
-        <h1 class="hero__name hero__name--groom">Er. Shailesh Mohite</h1>
+        <div class="hero__person hero__person--groom">
+          <h1 class="hero__name hero__name--groom">{{ groom.name }}</h1>
+          <p class="hero__profession">{{ groom.profession }}</p>
+          <p class="hero__parentage">{{ groom.parentage }}</p>
+        </div>
+
         <div class="hero__ampersand">
           <span class="hero__amp-symbol">&</span>
           <div class="hero__amp-lines">
@@ -43,7 +48,12 @@
             <span></span>
           </div>
         </div>
-        <h1 class="hero__name hero__name--bride">Dr. Shubhangi Pandit</h1>
+
+        <div class="hero__person hero__person--bride">
+          <h1 class="hero__name hero__name--bride">{{ bride.name }}</h1>
+          <p class="hero__profession">{{ bride.profession }}</p>
+          <p class="hero__parentage">{{ bride.parentage }}</p>
+        </div>
       </div>
 
       <p class="hero__invite">Invite You To Celebrate Their Wedding</p>

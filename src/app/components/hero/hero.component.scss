@@ -164,12 +164,31 @@
     line-height: 1.15;
     text-shadow: 0 2px 20px rgba(0,0,0,0.4);
 
-    &--groom { margin-bottom: 0.25rem; }
-    &--bride { margin-top: 0.25rem; }
-
     @media (max-width: 480px) {
       font-size: clamp(1.6rem, 8vw, 2.2rem);
     }
+  }
+
+  &__profession {
+    font-family: var(--font-serif);
+    font-size: clamp(0.75rem, 1.6vw, 0.95rem);
+    color: var(--color-gold-light);
+    font-style: italic;
+    letter-spacing: 0.04em;
+    margin-top: 0.3rem;
+  }
+
+  &__parentage {
+    font-family: var(--font-serif);
+    font-size: clamp(0.68rem, 1.4vw, 0.8rem);
+    color: rgba(255,248,240,0.65);
+    letter-spacing: 0.02em;
+    margin-top: 0.15rem;
+  }
+
+  &__person {
+    &--groom { margin-bottom: 0.25rem; }
+    &--bride { margin-top: 0.25rem; }
   }
 
   &__ampersand {

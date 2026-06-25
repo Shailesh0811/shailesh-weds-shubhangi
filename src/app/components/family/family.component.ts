@@ -31,11 +31,11 @@ export class FamilyComponent {
       color: '#C9A84C',
       icon: 'fa-user-tie',
       parents: [
-        { name: 'Sub Maj. Shivaji Kisan Mohite', relation: 'Father', icon: 'fa-user-tie' },
+        { name: 'Subedar Major Shivaji Kisan Mohite', relation: 'Father', icon: 'fa-user-tie' },
         { name: 'Mrs. Savita Shivaji Mohite', relation: 'Mother', icon: 'fa-user' },
       ],
       members: [
-        { name: 'Miss. Monika Walke', relation: 'Sister', icon: 'fa-user' },
+        { name: 'Mrs. Monika Walke', relation: 'Sister', icon: 'fa-user' },
         { name: 'Mr. Sandeep Walke', relation: 'Brother in law', icon: 'fa-user-tie' },
         // { name: 'Mr. Suresh Mohite', relation: 'Uncle', icon: 'fa-user-tie' },
         // { name: 'Mrs. Lata Mohite', relation: 'Aunt', icon: 'fa-user' },
