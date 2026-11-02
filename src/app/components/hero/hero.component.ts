@@ -35,13 +35,13 @@ export class HeroComponent implements OnInit, OnDestroy {
 
   groom = {
     name: 'Er. Shailesh Mohite',
-    profession: 'Software Engineer',
+    profession: 'Software Engineer (B.Tech CSE)',
     parentage: 'Son of Subedar Major Shivaji Kisan Mohite & Mrs. Savita Shivaji Mohite'
   };
 
   bride = {
     name: 'Dr. Shubhangi Pandit',
-    profession: 'Doctor',
+    profession: 'Doctor (BAMS)',
     parentage: 'Daughter of Mr. Subhashrao Pandit & Mrs. Sangita Subhashrao Pandit'
   };
 
