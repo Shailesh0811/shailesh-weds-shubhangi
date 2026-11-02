@@ -25,7 +25,7 @@ export class StoryComponent implements AfterViewInit {
       year: '03 May 2026',
       title: 'First Meeting',
       description: 'Two souls destined to meet found each other for the very first time. A moment that neither of them knew would change their lives forever — the beginning of a beautiful love story.',
-      image: 'assets/images/couple/selfie-together.png',
+      image: 'assets/images/couple/engagement-ring.png',
       icon: 'fa-star',
       side: 'left'
     },

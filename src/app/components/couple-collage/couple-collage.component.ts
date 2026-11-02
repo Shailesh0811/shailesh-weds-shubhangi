@@ -23,7 +23,7 @@ export class CoupleCollageComponent implements AfterViewInit, OnDestroy {
 
   @ViewChild('track') private trackRef?: ElementRef<HTMLElement>;
   private autoplayTimer?: ReturnType<typeof setInterval>;
-  private readonly AUTOPLAY_MS = 2000;
+  private readonly AUTOPLAY_MS = 4000;
 
   // Center feature photo
   centerPhoto = `${this.BASE}/together-2.jpg`;
