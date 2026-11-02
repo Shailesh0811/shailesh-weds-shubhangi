@@ -79,7 +79,8 @@ export class HeroComponent implements OnInit, OnDestroy {
   }
 
   scrollToRsvp(): void {
-    const el = document.getElementById('rsvp');
+    // RSVP disabled — send "Save the Date" to the events section instead
+    const el = document.getElementById('events');
     if (el) {
       const top = el.getBoundingClientRect().top + window.scrollY - 70;
       window.scrollTo({ top, behavior: 'smooth' });

@@ -30,16 +30,16 @@ export class CoupleCollageComponent implements AfterViewInit, OnDestroy {
 
   // Left column (top to bottom)
   leftSlots: CollageSlot[] = [
-    { id: 'together-1', label: 'Cheek Kiss',       src: `${this.BASE}/together-1.jpg` },
-    { id: 'together-3', label: 'Sweet Smiles',      src: `${this.BASE}/together-3.jpg` },
-    { id: 'together-4', label: 'Close Together',    src: `${this.BASE}/together-4.jpg` },
+    { id: 'together-1', label: '',       src: `${this.BASE}/together-1.jpg` },
+    { id: 'together-3', label: '',      src: `${this.BASE}/together-3.jpg` },
+    { id: 'together-4', label: '',    src: `${this.BASE}/together-4.jpg` },
   ];
 
   // Right column (top to bottom)
   rightSlots: CollageSlot[] = [
-    { id: 'together-5', label: 'Forehead Kiss', src: `${this.BASE}/together-5.jpg` },
-    { id: 'together-6', label: 'Selfie Time',   src: `${this.BASE}/together-6.jpg` },
-    { id: 'together-7', label: 'Warm Moment',   src: `${this.BASE}/together-7.jpg` },
+    { id: 'together-5', label: '', src: `${this.BASE}/together-5.jpg` },
+    { id: 'together-6', label: '',   src: `${this.BASE}/together-6.jpg` },
+    { id: 'together-7', label: '',   src: `${this.BASE}/together-7.jpg` },
   ];
 
   // Bottom row — individual portraits

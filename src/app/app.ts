@@ -6,7 +6,7 @@ import { CoupleComponent } from './components/couple/couple.component';
 import { EventsComponent } from './components/events/events.component';
 import { VenueComponent } from './components/venue/venue.component';
 import { FamilyComponent } from './components/family/family.component';
-import { RsvpComponent } from './components/rsvp/rsvp.component';
+// import { RsvpComponent } from './components/rsvp/rsvp.component';
 import { WishesComponent } from './components/wishes/wishes.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
@@ -24,7 +24,7 @@ import { ThemeService } from './services/theme.service';
     EventsComponent,
     VenueComponent,
     FamilyComponent,
-    RsvpComponent,
+    // RsvpComponent,
     WishesComponent,
     CoupleCollageComponent,
     FooterComponent,

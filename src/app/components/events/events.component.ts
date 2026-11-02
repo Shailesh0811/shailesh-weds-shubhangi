@@ -25,24 +25,24 @@ export class EventsComponent {
     {
       title: 'Engagement Ceremony',
       date: 'November 25, 2026',
-      time: '11:00 AM onwards',
+      time: '01:15 PM onwards',
       venue: 'Baheti Mangal Karyalaya',
-      address: 'Bansilal Nagar Walur Road,Sailu, Maharashtra',
+      address: 'Bansilal Nagar Walur Road, Sailu, Maharashtra',
       icon: 'fa-ring',
       color: '#C9A84C',
       description: 'The formal exchange of rings marking the beginning of a lifelong commitment, celebrated with family and loved ones.',
-      dress: 'Formal Traditional Wear'
+      dress: 'Formal Wear / Fancy Traditional Saree'
     },
     {
       title: 'Haldi & Sangeet Night',
       date: 'November 25, 2026',
       time: '05:00 PM onwards',
       venue: 'Baheti Mangal Karyalaya',
-      address: 'Bansilal Nagar Walur Road,Sailu, Maharashtra',
+      address: 'Bansilal Nagar Walur Road, Sailu, Maharashtra',
       icon: 'fa-music',
       color: '#F5C842',
       description: 'An evening of vibrant Haldi blessings followed by joyful Sangeet celebrations — music, dance, and unforgettable moments with family.',
-      dress: 'Yellow / Bright Colours'
+      dress: 'Golden / Red Color'
     },
     {
       title: 'Wedding Ceremony',
@@ -50,10 +50,10 @@ export class EventsComponent {
       time: '12:01 PM (Muhurat)',
       venue: 'Baheti Mangal Karyalaya',
       address: 'Bansilal Nagar Walur Road, Sailu, Maharashtra',
-      icon: 'fa-church',
-      color: '#E8738A',
+      icon: 'fa-heart couple__and-heart',
+      color: '#F5C842',
       description: 'The sacred union where Shailesh and Shubhangi exchange vows in the presence of family, friends, and the divine.',
-      dress: 'Traditional Indian Formal'
+      dress: 'Suit / Traditional Saree'
     },
   ];
 }

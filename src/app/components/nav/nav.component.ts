@@ -28,7 +28,7 @@ export class NavComponent {
     { label: 'Events',     target: 'events',  icon: 'fa-calendar' },
     { label: 'Venue',      target: 'venue',   icon: 'fa-map-marker-alt' },
     { label: 'Family',     target: 'family',  icon: 'fa-users' },
-    { label: 'RSVP',       target: 'rsvp',    icon: 'fa-envelope' },
+    // { label: 'RSVP',       target: 'rsvp',    icon: 'fa-envelope' },
   ];
 
   @HostListener('window:scroll')

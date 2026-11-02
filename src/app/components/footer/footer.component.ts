@@ -18,7 +18,7 @@ export class FooterComponent {
     { label: 'Gallery',    target: 'gallery' },
     { label: 'Venue',      target: 'venue' },
     { label: 'Family',     target: 'family' },
-    { label: 'RSVP',       target: 'rsvp' },
+    // { label: 'RSVP',       target: 'rsvp' },
     { label: 'Wishes',     target: 'wishes' },
   ];
 
