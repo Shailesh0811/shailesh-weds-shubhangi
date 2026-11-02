@@ -4,7 +4,6 @@ import { HeroComponent } from './components/hero/hero.component';
 import { StoryComponent } from './components/story/story.component';
 import { CoupleComponent } from './components/couple/couple.component';
 import { EventsComponent } from './components/events/events.component';
-import { GalleryComponent } from './components/gallery/gallery.component';
 import { VenueComponent } from './components/venue/venue.component';
 import { FamilyComponent } from './components/family/family.component';
 import { RsvpComponent } from './components/rsvp/rsvp.component';
@@ -23,7 +22,6 @@ import { ThemeService } from './services/theme.service';
     StoryComponent,
     CoupleComponent,
     EventsComponent,
-    GalleryComponent,
     VenueComponent,
     FamilyComponent,
     RsvpComponent,

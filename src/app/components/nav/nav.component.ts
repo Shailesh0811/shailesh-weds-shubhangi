@@ -23,10 +23,9 @@ export class NavComponent {
 
   navItems: NavItem[] = [
     { label: 'Our Story',  target: 'story',   icon: 'fa-heart' },
-    { label: 'Moments',    target: 'collage', icon: 'fa-images' },
+    { label: 'Gallery',    target: 'gallery', icon: 'fa-camera' },
     { label: 'Couple',     target: 'couple',  icon: 'fa-ring' },
     { label: 'Events',     target: 'events',  icon: 'fa-calendar' },
-    { label: 'Gallery',    target: 'gallery', icon: 'fa-camera' },
     { label: 'Venue',      target: 'venue',   icon: 'fa-map-marker-alt' },
     { label: 'Family',     target: 'family',  icon: 'fa-users' },
     { label: 'RSVP',       target: 'rsvp',    icon: 'fa-envelope' },

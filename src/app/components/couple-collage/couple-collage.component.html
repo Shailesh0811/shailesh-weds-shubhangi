@@ -1,4 +1,4 @@
-<section class="collage" id="collage">
+<section class="collage" id="gallery">
   <div class="collage__petals" aria-hidden="true">
     <span>🌸</span><span>🌹</span><span>🌸</span><span>🌺</span>
     <span>🌸</span><span>🌹</span><span>🌸</span><span>🌺</span>
@@ -7,11 +7,40 @@
   <div class="container">
     <div class="section-header reveal">
       <span class="section-label">Shailesh & Shubhangi</span>
-      <h2 class="section-title">Our Beautiful Moments</h2>
+      <h2 class="section-title">Our Gallery</h2>
       <div class="section-divider">
         <span class="divider-icon"><i class="fas fa-heart"></i></span>
       </div>
       <p class="section-subtitle">Every moment with you is a memory I treasure forever</p>
+    </div>
+
+    <!-- Mobile carousel (shown ≤640px instead of the collage) -->
+    <div class="collage__carousel reveal">
+      <div class="collage__track" #track (scroll)="onTrackScroll(track)" (touchstart)="startAutoplay()">
+        @for (photo of photos; track photo.id) {
+          <div class="collage__card" (click)="open(photo.src)" role="button" tabindex="0" (keydown.enter)="open(photo.src)">
+            <img [src]="photo.src" [alt]="photo.label" loading="lazy" class="collage__card-img" />
+          </div>
+        }
+      </div>
+
+      <button class="collage__carousel-nav collage__carousel-nav--prev" (click)="scrollTo(track, activeSlide() - 1); startAutoplay()" aria-label="Previous photo">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="collage__carousel-nav collage__carousel-nav--next" (click)="scrollTo(track, activeSlide() + 1); startAutoplay()" aria-label="Next photo">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+
+      <div class="collage__dots">
+        @for (photo of photos; track photo.id; let i = $index) {
+          <button
+            class="collage__dot"
+            [class.collage__dot--active]="i === activeSlide()"
+            (click)="scrollTo(track, i); startAutoplay()"
+            [attr.aria-label]="'Show photo ' + (i + 1)"
+          ></button>
+        }
+      </div>
     </div>
 
     <!-- Main frame: left col | center photo | right col -->
@@ -29,7 +58,7 @@
 
       <!-- Center photo — CSS moves it to top on mobile via order:-1 -->
       <div class="collage__center">
-        <div class="collage__photo-frame">
+        <div class="collage__photo-frame" (click)="open(centerPhoto)" role="button" tabindex="0" (keydown.enter)="open(centerPhoto)">
           <div class="collage__photo-ring" aria-hidden="true"></div>
           <img
             [src]="centerPhoto"
@@ -50,7 +79,7 @@
       <!-- Left column -->
       <div class="collage__col">
         @for (slot of leftSlots; track slot.id) {
-          <div class="collage__slot">
+          <div class="collage__slot" (click)="open(slot.src)" role="button" tabindex="0" (keydown.enter)="open(slot.src)">
             <img [src]="slot.src" [alt]="slot.label" loading="lazy" class="collage__img" />
             <div class="collage__slot-hover">{{ slot.label }}</div>
           </div>
@@ -60,7 +89,7 @@
       <!-- Right column -->
       <div class="collage__col">
         @for (slot of rightSlots; track slot.id) {
-          <div class="collage__slot">
+          <div class="collage__slot" (click)="open(slot.src)" role="button" tabindex="0" (keydown.enter)="open(slot.src)">
             <img [src]="slot.src" [alt]="slot.label" loading="lazy" class="collage__img" />
             <div class="collage__slot-hover">{{ slot.label }}</div>
           </div>
@@ -68,14 +97,42 @@
       </div>
     </div>
 
-    <!-- Bottom row: 6 more illustrations -->
-    <!-- <div class="collage__bottom reveal">
-      @for (slot of bottomSlots; track slot.id) {
-        <div class="collage__bottom-slot">
-          <img [src]="slot.src" [alt]="slot.label" loading="lazy" class="collage__img" />
-          <div class="collage__slot-hover">{{ slot.label }}</div>
+    <!-- Bottom row: individual portraits -->
+    <div class="collage__portraits reveal">
+      @for (slot of portraits; track slot.id) {
+        <div class="collage__portrait" (click)="open(slot.src)" role="button" tabindex="0" (keydown.enter)="open(slot.src)">
+          <img [src]="slot.src" [alt]="slot.label" loading="lazy" class="collage__portrait-img" />
         </div>
       }
-    </div> -->
+    </div>
   </div>
+
+  <!-- Lightbox -->
+  @if (lightboxOpen()) {
+    <div class="collage__lightbox" (click)="close()">
+      <div class="collage__lightbox-inner" (click)="$event.stopPropagation()">
+        <button class="collage__lightbox-close" (click)="close()" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </button>
+
+        <button class="collage__lightbox-nav collage__lightbox-nav--prev" (click)="prev()" aria-label="Previous">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <img
+          [src]="photos[currentIndex()].src"
+          [alt]="photos[currentIndex()].label"
+          class="collage__lightbox-img"
+        />
+
+        <button class="collage__lightbox-nav collage__lightbox-nav--next" (click)="next()" aria-label="Next">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <div class="collage__lightbox-counter">
+          {{ currentIndex() + 1 }} / {{ photos.length }}
+        </div>
+      </div>
+    </div>
+  }
 </section>
