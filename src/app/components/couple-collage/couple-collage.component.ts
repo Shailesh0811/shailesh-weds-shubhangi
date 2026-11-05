@@ -31,20 +31,22 @@ export class CoupleCollageComponent implements AfterViewInit, OnDestroy {
   // Left column (top to bottom)
   leftSlots: CollageSlot[] = [
     { id: 'together-1', label: '',       src: `${this.BASE}/together-1.jpg` },
-    { id: 'together-3', label: '',      src: `${this.BASE}/together-3.jpg` },
     { id: 'together-4', label: '',    src: `${this.BASE}/together-4.jpg` },
+    { id: 'together-8', label: '',    src: `${this.BASE}/together-8.jpg` },
+    { id: 'together-9', label: '',    src: `${this.BASE}/together-9.jpg` },
   ];
 
   // Right column (top to bottom)
   rightSlots: CollageSlot[] = [
     { id: 'together-5', label: '', src: `${this.BASE}/together-5.jpg` },
-    { id: 'together-6', label: '',   src: `${this.BASE}/together-6.jpg` },
     { id: 'together-7', label: '',   src: `${this.BASE}/together-7.jpg` },
+    { id: 'together-10', label: '',    src: `${this.BASE}/together-10.jpg` },
+    { id: 'together-11', label: '',    src: `${this.BASE}/together-11.jpg` },
   ];
 
   // Bottom row — individual portraits
   portraits: CollageSlot[] = [
-    { id: 'groom', label: 'Er. Shailesh Mohite',  src: 'assets/images/gallery/groom/Shailesh.jpg' },
+    { id: 'groom', label: 'Er. Shailesh Mohite',  src: 'assets/images/gallery/groom/Shailesh1.jpg' },
     { id: 'bride', label: 'Dr. Shubhangi Pandit', src: 'assets/images/gallery/bride/Shubhangi.JPG' },
   ];
 
@@ -52,8 +54,7 @@ export class CoupleCollageComponent implements AfterViewInit, OnDestroy {
   photos: CollageSlot[] = [
     { id: 'together-2', label: 'Together Forever', src: this.centerPhoto },
     ...this.leftSlots,
-    ...this.rightSlots,
-    ...this.portraits,
+    ...this.rightSlots
   ];
 
   open(src: string): void {
